@@ -1,0 +1,62 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Espace Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="custom-datatable">
+                        <div class="clearfix"></div>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>espaceId</th>
+                                <th>espaceName</th>
+                                <th >espaceLocation</th>
+                                <th>lieu</th>
+                                <th>numberFields</th>
+                                <th>espaceImages</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let item of espaceList">
+                                <td>
+                                    {{ item.espaceId }}
+                                </td>
+                                <td>
+                                    {{ item.espaceName }}
+                                </td>
+                                <td>
+                                    {{ item.location }}
+                                </td>
+                                <td>
+                                    {{ item.lieu }}
+                                </td>
+                                <td>
+                                    {{ item.numberFields }}
+                                </td>
+                                <td>
+                                    <div *ngFor="let image of item.espaceImages">
+                                        <img [src]="image.url"   style="width: 70px">
+                                    </div>
+                                </td>
+
+                                <td scope="row">
+                                    <!--<a  (click)="editCatalogDetails(item.catalogId)"  href="javascript:void(0)"><i class='fa fa-edit f-12'></i></a>&nbsp;-->
+                                    <a  (click)="editEspaceDetails(item.espaceId)"  href="javascript:void(0)"><i class='fa fa-edit f-12'></i></a>&nbsp;
+                                    <a (click)="deleteEspace(item.espaceId)" href="javascript:void(0)"><i class="fa fa-trash-o" ></i> &nbsp;&nbsp;&nbsp;</a>
+                                    <a (click)="affectField(item.espaceId)">affect field</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

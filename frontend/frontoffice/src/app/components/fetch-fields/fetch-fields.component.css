@@ -1,0 +1,215 @@
+.policy-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.policy-p-card {
+  width: calc(100% - 20px); /* Account for margins or padding */
+  margin: 10px; /* Adjust margin as needed */
+  /* Other existing styles for .policy-p-card */
+}
+
+
+
+.policy{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 380px;
+  padding: 60px 0;
+}
+.round{
+  padding: 23px;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  font-size: 34px;
+  background: rgba(255, 255, 255, .2);
+  transition: all .3s ease;
+  margin: 0 auto;
+  position: relative;
+}
+.round-icon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+.policy-card h2{
+  transition: all .3s ease;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 12px 0 5px;
+}
+.policy-card p{
+  color: #dbdbdb;
+  font-style: italic;
+}
+.policy-card:hover .round{
+  background: rgba(0, 128, 0, 0.94);
+  cursor: pointer;
+}
+.policy-card:hover h2{
+  color: rgba(0, 128, 0, 0.94);
+  cursor: pointer;
+}
+.policy-product{
+  padding: 60px 0;
+  background: #eee;
+}
+.policy-p-card{
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  border-bottom: 1px solid #a8a8a8;
+  position: relative;
+}
+
+.price{
+  border: #4CD964;
+}
+
+.date{
+  position: absolute;
+  top: 0;
+  left: 30px;
+  z-index: 2;
+  background: rgba(0, 128, 0, 0.94);
+  padding: 15px 10px;
+  text-align: center;
+  border-radius: 0 0 4px 4px;
+}
+.date h3{
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.date h4{
+  color: #eee;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+
+}
+.policy-img{
+  width: 100%;
+  height: 150px;
+  margin-top: 0vh;
+  overflow: hidden;
+}
+.policy-img img{
+  width: 100%;
+  height: 100%;
+  transition: all .3s ease;   /*check this later*/
+}
+
+.policy-img img:hover{
+  transform: scale(1.2);
+}
+.policy-p-card {
+  margin-right: 20px;
+}
+
+
+.policy-p-card h2{
+  text-transform: capitalize;
+  line-height: 24px;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 18px 0 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.policy-p-card h2:hover{
+  color: rgba(0, 128, 0, 0.94);
+}
+.policy-p-card p{
+  color: #777;
+  line-height: 21px;
+  font-size: 14px;
+  transition: all .3s ease;
+  font-weight: 500;
+}
+.read-more{
+  color: rgba(0, 128, 0, 0.94);
+  width: 100px;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 10px 0;
+  display: block;
+  border: 1px solid rgba(0, 128, 0, 0.94);
+  background: #fff;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+.read-more i{
+  margin-left: 4px;
+}
+.read-more:hover{
+  background: rgba(0, 128, 0, 0.94);
+  color: #fff;
+}
+.read-more:hover i{
+  margin-left: 6px;
+}
+.partners img{
+  transition: all .3s ease;
+}
+.partners img :hover{
+  box-shadow: 0 0 10px 1px #dbdbdb;
+}
+.policy-product{
+  background-image: url("../../../assets/bg2.jpg");
+  margin-top: 0; /* Remove any top margin to reduce the space */
+  padding-top: 0;
+}
+.policy-header{
+  display: flex;
+  justify-content: space-between;
+}
+.price{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 128, 0, 0.94);
+  width: 39px;
+  height: 45px;
+  background-color: rgba(0, 128, 0, 0.94);
+  color: white;
+  margin-top: 15px;
+}
+.price p{
+  color: white;
+  font-weight: bold;
+}
+
+.position{
+  margin-top: -7px;
+}
+.reserve{
+  display: flex;
+  justify-content: space-between;
+}
+
+.size {
+  margin-top: 10px;
+}
+.size p{
+  font-weight: bold;
+}
+.title2{
+  text-align: center;
+  color: white;
+  padding-top: 4vh;
+  margin-bottom: 35px;
+  font-size: 48px;
+  font-weight: bold;
+}

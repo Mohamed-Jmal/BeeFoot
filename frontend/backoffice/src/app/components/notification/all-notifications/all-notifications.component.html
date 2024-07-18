@@ -1,0 +1,47 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Notification Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="custom-datatable">
+                        <div class="clearfix"></div>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>notificationId</th>
+                                <th>title</th>
+                                <th>content</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let item of notificationList">
+                                <td>
+                                    {{ item.notificationId }}
+                                </td>
+                                <td>
+                                    {{ item.title }}
+                                </td>
+                                <td>
+                                    {{ item.content }}
+                                </td>
+
+
+                                <td scope="row">
+                                    <!--<a  (click)="editCatalogDetails(item.catalogId)"  href="javascript:void(0)"><i class='fa fa-edit f-12'></i></a>&nbsp;-->
+                                    <a  (click)="editNotificationDetails(item.notificationId)" href="javascript:void(0)"><i class='fa fa-edit f-12'></i></a>&nbsp;
+                                    <a (click)="deleteNotification(item.notificationId)" href="javascript:void(0)"><i class="fa fa-trash-o" ></i> &nbsp;&nbsp;&nbsp;</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

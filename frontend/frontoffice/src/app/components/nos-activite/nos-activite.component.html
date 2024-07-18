@@ -1,0 +1,30 @@
+<div class="bg-postion"><!--the row is after that -->
+  <div class="policy-container">
+    <div *ngFor="let item of espaceList | paginate: {itemsPerPage: 12, currentPage: p }">
+      <div class="policy-p-card">
+        <div class="policy-img" *ngFor="let image of item.espaceImages">
+          <img [src]="image.url">
+        </div>
+        <div class="content">
+          <div class="policy-header">
+            <div class="price"><p>84DT</p></div>
+            <div class="title1">
+              <h2>CLUB MIAMI CENTER</h2>
+              <div class="position">
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i>  sidi mansour road, sfax 3094</p>
+              </div>
+            </div>
+          </div>
+          <div class="reserve">
+            <div class="size">
+              <p><i class="fa fa-users" aria-hidden="true"></i>14</p>
+            </div>
+            <a  class="read-more" (click)="fetchfields()">Reserver</a>
+          </div>
+
+        </div>
+    </div>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+</div>

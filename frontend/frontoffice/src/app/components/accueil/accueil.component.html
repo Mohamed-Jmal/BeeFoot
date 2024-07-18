@@ -1,0 +1,190 @@
+<div class="page-container">
+  <div class="page-header">
+    <!----------------------------NAVBAR-------------------------------->
+    <section class="parent-container">
+      <mat-toolbar class="custom-toolbar" style="background-color: rgba(0, 0, 0, 0);">
+        <div class="logo-container">
+          <span><img style="width: 30%;height: 30%;" src="../../../assets/logo.jpg"></span>
+        </div>
+        <div class="links-container" [ngClass]="{'show-hamburger-options': showHeaderOptions}">
+          <a  mat-button style="font-weight: bold" (click)="reloadPage()">ACCUEIL</a>
+          <a mat-button style="font-weight: bold" (click)="navigateToContactForm()">CONTACTEZ-NOUS</a>
+          <a mat-button style="font-weight: bold" (click)="navigateToNosActivite()">NOS ACTIVITES</a>
+          <a mat-button style="font-weight: bold" (click)="registerAdmin()">DEVENEZ PARTENAIRE</a>
+          <a mat-button style="font-weight: bold" (click)="loginUser()" [disabled]="currentuser" [hidden]="currentuser"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+          </svg>| SE CONNECTEZ</a>
+        </div>
+        <div *ngIf="currentuser; else notConnected">
+          <mat-menu #userMenu="matMenu" xPosition="before">
+            <button mat-menu-item>
+              <img [src]="user.avatar" alt="User Avatar" (click)="openUserProfile()"/>
+              <span>{{ user.username }}</span>
+            </button>
+            <button mat-menu-item (click)="showNotifications()">Notifications</button>
+            <button mat-menu-item (click)="showUserProfile()">Profile Details</button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+          </mat-menu>
+
+          <button mat-icon-button [matMenuTriggerFor]="userMenu">
+            <mat-icon class="header-hamburger-bars">account_circle</mat-icon>
+          </button>
+        </div>
+        <ng-template #notConnected>
+          <button type="button" class="btn btn-secondary sinscrire" (click)="navigateToSignUpUser()">S'INSCRIRE</button>
+        </ng-template>
+        <button mat-icon-button class="header-hamburger" (click)="toggleHeaderOptions()">
+          <mat-icon class="header-hamburger-bars">menu</mat-icon>
+        </button>
+      </mat-toolbar>
+
+    </section>
+    <!----------------------------------RESERVER------------------------>
+    <section class="centered-section reserve-pos">
+      <h1 class="containers reserver-title">RÉSERVER VOS PLACE</h1>
+      <form>
+        <table class="containers table" style="border-collapse: collapse; width: 70%">
+          <tr class="responsive-container">
+            <td style="  height: 100%; position: relative;" class="style testt">
+              <mat-form-field style="width: 100%; height: 100%;" class="responsive-field">
+                <mat-label>LIEU</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td style=" height: 100%; position: relative;" class="style testt">
+              <mat-form-field style="width: 100%; height: 100%;" class="responsive-field">
+                <mat-label>ESPACES</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td style=" height: 100%; position: relative;" class="style testt">
+              <mat-form-field style="width: 100%; height: 100%;" class="responsive-field">
+                <mat-label>DATE</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </td>
+            <td style=" height: 100%; position: relative;" class="style">
+              <div style="height: 100%; overflow: auto;" class="responsive-button">
+                <button class="search-button">Recherche</button>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </section>
+    <div>
+      <!-- Other content specific to AccueilComponent -->
+      <!-- This is where child components will be displayed -->
+    </div>
+  </div>
+
+  <!-----------------------------------ABOUTUS----------------------------------->
+  <section class="body">
+    <div class="container">
+      <div class="image">
+        <img src="assets/m2.png" alt="football">
+      </div>
+      <div class="about-us">
+        <h1 class="title">BE FOOT</h1>
+        <h1 class="sous-title">QUI SOMMES NOUS</h1>
+        <p class="paragraph">en forme longue depuis 1875 la République française (Écouter), est un État souverain transcontinental dont le territoire métropolitain s'étend en Europe de l'Ouest et dont le territoire ultramarin s'étend dans les océans Indien, Atlantique, Pacifique, ainsi qu'en Antarctique8 et en Amérique du Sud. Le pays a des frontières terrestres avec la Belgique, le Luxembourg, l'Allemagne, la Suisse, l'Italie, l'Espagne, Monaco et l'Andorre en Europe, auxquelles s'ajoutent les frontières terrestres avec le Brésil, le Suriname et les Pays-Bas aux Amériques. La France dispose d'importantes façades maritimes sur l'Atlantique, la Méditerranée, le Pacifique et l'océan Indien, lui permettant de bénéficier de la deuxième plus vaste zone économique exclusive du monde.</p>
+      </div>
+    </div>
+  </section>
+  <!------------------------------CAROUSEL--------------------------------------->
+  <section class="policy-product">
+    <div class="containers">
+      <h1 class="title2">DÉCOUVREZ NOS ESPACES</h1>
+      <div class="bg-postion"><!--the row is after that -->
+        <owl-carousel-o [options]="policyOptions">
+          <ng-template carouselSlide *ngFor="let item of fieldList">
+            <div class="policy-p-card">
+              <div class="policy-img" *ngFor="let image of item.fieldImages">
+                <img [src]="image.url">
+              </div>
+              <div class="content">
+                <div class="policy-header">
+                  <div class="price"><p>84DT</p></div>
+                  <div class="title1">
+                    <h2>CLUB MIAMI CENTER</h2>
+                    <div class="position">
+                      <p><i class="fa fa-map-marker" aria-hidden="true"></i>  sidi mansour road, sfax 3094</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="reserve">
+                  <div class="size">
+                    <p><i class="fa fa-users" aria-hidden="true"></i>14</p>
+                  </div>
+                  <a href="" class="read-more">Reserver</a>
+                </div>
+
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------------Vous avez un espace------------------------>
+  <section class="full-page-section">
+    <div class="content1">
+      <div class="left-image">
+        <div class="text-content">
+          <h1>VOUS AVEZ UN ESPACE?</h1>
+          <p class="under-title">en forme longue depuis 1875 la République française (Écouter), est un État souverain transcontinental dont le territoire métropolitain s'étend en Europe de l'Ouest et dont le territoire ultramarin s'étend dans les océans Indien, Atlantique, Pacifique, ainsi qu'en Antarctique8 et en Amérique du Sud. Le pays a des frontières terrestres avec la Belgique, le Luxembourg, l'Allemagne, la Suisse, l'Italie, l'Espagne, Monaco et l'Andorre en Europe, auxquelles s'ajoutent les frontières terrestres avec le Brésil</p>
+          <button class="btn-espace" (click)="registerAdmin()" style="margin-top: 380px;position: absolute; color: #fff;margin-left: 20px;background-color: rgba(0, 128, 0, 0.94);padding: 10px 20px;border: none;cursor: pointer;">DEVENEZ PARTENAIRE</button>
+        </div>
+      </div>
+      <div class="right-image">.</div>
+    </div>
+  </section>
+  <!-----------------------------------FOOTER------------------------------------>
+  <section class="classe">
+    <footer class="footer">
+      <div class="container-footer">
+        <div class="row">
+          <div class="footer-col">
+            <img src="assets/logo.jpg" alt="logo">
+          </div>
+          <div class="footer-col">
+            <h4>EN SAVOIR PLUS</h4>
+            <ul>
+              <li><a href="#">Accueil</a></li>
+              <li><a href="#">nos activités</a></li>
+              <li><a href="#">devenez partenaire</a></li>
+              <li><a href="#">Qui somme nous?</a></li>
+              <li><a href="#">Comment ça marche?</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>CONTACT</h4>
+            <ul>
+              <li><a href="#">kravel@galion.com</a></li>
+              <li><a href="#">+216 71 308 500</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>REJOIGNEZ-NOUS</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+</div>

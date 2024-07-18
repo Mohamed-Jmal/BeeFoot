@@ -1,0 +1,29 @@
+<div class="row product-details">
+  <div class="col-sm-6 image-section" *ngFor="let image of field1?.fieldImages">
+    <img class="product-img custom-image" style="width: 80%; height: 80%"  [src]="image?.url" alt="Field Image">
+  </div>
+  <div class="col-sm-6 details-section">
+    <div class="details">
+      <h1>{{ field1?.fieldName }}</h1>
+      <div class="rating">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+      </div>
+      <div class="details-info">
+        <p><strong>Location:</strong> {{ field1?.location }}</p>
+        <p><strong>Type de terrain:</strong> {{ field1?.fieldType }}</p>
+        <select class="custom-select" [(ngModel)]="selectedDate">
+          <option *ngFor="let date of datalist" [value]="date">
+            {{ date | date: 'yyyy-MM-dd HH:mm:ss' }}
+          </option>
+        </select>
+        <p>Selected Date: {{ selectedDate | date: 'yyyy-MM-dd HH:mm' }}</p>
+
+      </div>
+      <button class="form-button" (click)="onSubmit()" >Réserver</button>
+    </div>
+  </div>
+</div>

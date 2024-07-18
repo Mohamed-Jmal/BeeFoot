@@ -1,0 +1,8 @@
+
+
+.svg-icon img {
+  max-width: 164%;
+  max-height: 164%;
+  border-radius: 50%;
+  object-fit: cover; /* To ensure the image covers the container without stretching */
+}

@@ -1,0 +1,40 @@
+<body><div class="parent-container">
+  <h1 class="title">Bonjour <strong>{{currentuser.username}}</strong>, Voici ton profil</h1>
+  <div class="container">
+    <div class="image" *ngFor="let image of currentuser.userImages">
+      <img [src]="image.url"   style="width: 200px;height: 200px">
+    </div>
+    <div class="separator"></div>
+    <div class="details">
+      <div class="detail-group">
+        <div class="detail">
+          <h3>Nom d'utilisateur</h3>
+          <p>{{currentuser.username}}</p>
+        </div>
+        <div class="detail">
+          <h3>nom complet</h3>
+          <p>{{currentuser.fullName}}</p>
+        </div>
+      </div>
+      <div class="detail-group">
+        <div class="detail">
+          <h3>e-mail</h3>
+          <p>{{currentuser.email}}</p>
+        </div>
+        <div class="detail">
+          <h3>numéro de téléphone</h3>
+          <p>{{currentuser.phoneNumber}}</p>
+        </div>
+      </div>
+      <div class="detail-group">
+        <div class="detail">
+          <h3>sexe</h3>
+          <p>{{currentuser.gender}}</p>
+        </div>
+      </div>
+      <button mat-raised-button style="color: white; font-size: 20px; background-color: rgba(0, 128, 0, 0.94);"
+              onmouseover="this.style.backgroundColor='rgba(0, 128, 0, 0.94)';"
+              onmouseout="this.style.backgroundColor='rgba(0, 128, 0, 0.94)';"(click)="editUserDetails(currentuser.id)" >Modifier</button>
+    </div>
+  </div>
+</div></body>

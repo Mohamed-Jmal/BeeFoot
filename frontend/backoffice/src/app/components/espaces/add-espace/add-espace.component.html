@@ -1,0 +1,63 @@
+<form #espaceForm="ngForm" (ngSubmit)="onSubmit(espaceForm)">
+    <div class="container-fluid">
+        <div class="row product-adding">
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>ADD Espace</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="digital-add needs-validation">
+                            <div class="col-xl-3 col-md-4"><label for="validationCustom0"><span>*</span>
+                                nom d'espace</label></div>
+                            <div class="col-xl-8 col-md-7"><input class="form-control" id="validationCustom0" [(ngModel)]="espace.espaceName" name="espaceName"
+                                                                  type="text" ></div>
+                            <div class="form-group ">
+                                <div class="col-xl-3 col-md-4"><label for="validationCustom1"><span>*</span> nombre de terrains</label></div>
+                                <div class="col-xl-8 col-md-7"><input class="form-control" id="validationCustom1" [(ngModel)]="espace.numberFields" name="numberFields"
+                                                                      type="number" ></div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="col-xl-3 col-md-4"><label for="validationCustom1"><span>*</span> location</label></div>
+                                <div class="col-xl-8 col-md-7"><input class="form-control" id="validationCustom2" [(ngModel)]="espace.location" name="location"
+                                                                      type="text" ></div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="col-xl-3 col-md-4"><label for="validationCustom1"><span>*</span> lieu</label></div>
+                                <div class="col-xl-8 col-md-7"><input class="form-control" id="validationCustom3" [(ngModel)]="espace.lieu" name="lieu"
+                                                                      type="text" ></div>
+                            </div>
+                            <div >
+                                <h3>Image Preview</h3>
+                                <div *ngFor="let url of espace.espaceImages">
+                                    <img [src]="url.url" width="400px" height="400px">
+                                </div>
+                            </div>
+                            <label class="col-form-label pt-0"> Image Upload</label>
+                            <div class="card-body dropzone-custom p-0">
+                                <ngx-dropzone class="dropzone-border" (change)="onSelect($event)">
+                                    <ngx-dropzone-label>
+                                        <div class="dz-message needsclick">
+                                            <i class="fa fa-cloud-upload"></i>
+                                            <h4 class="mb-0 f-w-600">Drop files here or click to upload.</h4>
+                                        </div>
+                                    </ngx-dropzone-label>
+                                    <ngx-dropzone-preview *ngFor="let f of array" [removable]="true" (removed)="onRemove(f)">
+                                        <ngx-dropzone-label>{{ f.filemal.name }} ({{ f.filemal.type }})</ngx-dropzone-label>
+                                    </ngx-dropzone-preview>
+                                </ngx-dropzone>
+                            </div>
+                            <div class="form-group mb-0">
+                                <div class="product-buttons text-end mt-3">
+                                    <button type="submit" class="btn btn-primary">Confirm Add</button>
+                                    <button type="button" class="btn btn-light">Clear</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

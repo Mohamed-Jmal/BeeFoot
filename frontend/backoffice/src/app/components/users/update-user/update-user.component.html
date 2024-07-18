@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card tab2-card">
+                <div class="card-header">
+                    <h5> Add User</h5>
+                </div>
+                <div class="card-body tab2-card">
+                    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                        <li [ngbNavItem]="1">
+                            <a ngbNavLink>Account</a>
+                            <ng-template ngbNavContent>
+                                <form  #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                                    <h4>Account Details</h4>
+                                    <div class="form-group row">
+                                        <div class="col-xl-3 col-md-4"><label for="validationCustom0"><span>*</span>
+                                            Full Name</label></div>
+                                        <div class="col-xl-8 col-md-7"><input class="form-control" id="validationCustom0"[(ngModel)]="user.fullName" name="fullName"
+                                                                              type="text" required="" ></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-xl-3 col-md-4"><label for="validationCustom1"><span>*</span> Username</label></div>
+                                        <div class="col-xl-8 col-md-7"><input class="form-control" id="validationCustom1" [(ngModel)]="user.username" name="userName"
+                                                                              type="text" required=""></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-xl-3 col-md-4"><label for="validationCustom2"><span>*</span>
+                                            Email</label></div>
+                                        <div class="col-xl-8 col-md-7"><input class="form-control" id="validationCustom2" [(ngModel)]="user.email" name="email"
+                                                                              type="text" required="" ></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-xl-3 col-md-4"><label for="validationCustom6"><span>*</span>
+                                            téléphone</label></div>
+                                        <div class="col-xl-8 col-md-7"><input class="form-control" id="validationCustom6" [(ngModel)]="user.phoneNumber" name="phoneNumber"
+                                                                              type="text" required="" ></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-xl-3 col-md-4"><label for="validationCustom3"><span>*</span>
+                                            Password</label>
+                                        </div>
+                                        <div class="col-xl-8 col-md-7"><input class="form-control" id="validationCustom3" [(ngModel)]="user.password" name="password"
+                                                                              type="password" required=""></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-xl-3 col-md-4"><label for="validationCustom4"><span>*</span>
+                                            Confirm Password</label></div>
+                                        <div class="col-xl-8 col-md-7"><input class="form-control" id="validationCustom4" [(ngModel)]="user.confirmPassword" name="confirmPassword"
+                                                                              type="password" required=""></div>
+                                    </div>
+                                    <div class="gender-details-box">
+                                        <span class="gender-title">Gender</span>
+                                        <div class="gender-category">
+                                            <input type="radio" name="gender" id="male" [(ngModel)]="user.gender" value="Male" id="validationCustom5">
+                                            <label for="male">Male</label>
+                                            <input type="radio" name="gender" id="female" [(ngModel)]="user.gender" value="Female"id="validationCustom6">
+                                            <label for="female">Female</label>
+                                        </div>
+                                    </div>
+                                    <div >
+                                        <h3>Image Preview</h3>
+                                        <div *ngFor="let url of user.userImages">
+                                            <img [src]="url.url" width="400px" height="400px">
+                                        </div>
+                                    </div>
+                                    <label class="col-form-label pt-0"> Image Upload</label>
+                                    <div class="card-body dropzone-custom p-0">
+                                        <ngx-dropzone class="dropzone-border" (change)="onSelect($event)">
+                                            <ngx-dropzone-label>
+                                                <div class="dz-message needsclick">
+                                                    <i class="fa fa-cloud-upload"></i>
+                                                    <h4 class="mb-0 f-w-600">Drop files here or click to upload.</h4>
+                                                </div>
+                                            </ngx-dropzone-label>
+                                            <ngx-dropzone-preview *ngFor="let f of array" [removable]="true" (removed)="onRemove(f)">
+                                                <ngx-dropzone-label>{{ f.filemal.name }} ({{ f.filemal.type }})</ngx-dropzone-label>
+                                            </ngx-dropzone-preview>
+                                        </ngx-dropzone>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </form>
+                            </ng-template>
+                        </li>
+                    </ul>
+                    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

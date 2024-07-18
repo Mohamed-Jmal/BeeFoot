@@ -1,0 +1,98 @@
+/* Styles for Product Details Section */
+.product-details {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex; /* Use Flexbox */
+}
+
+/* Styles for Image Section */
+.image-section {
+  flex: 1; /* Make the image section flexible */
+  margin-right: 20px; /* Add margin for spacing between images */
+}
+
+/* Styles for Product Images */
+
+
+/* Styles for Details Section */
+.details-section {
+  flex: 1; /* Make the details section flexible */
+}
+
+.details {
+  text-align: left;
+}
+
+.details h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333; /* Change text color */
+}
+
+/* Styles for Star Rating */
+.rating {
+  color: #f1c40f; /* Star color */
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.fa-star {
+  margin-right: 5px; /* Spacing between stars */
+}
+/* Add a custom class for controlling image size */
+
+
+
+.checked {
+  color: #f1c40f; /* Color for checked stars */
+}
+
+.details-info {
+  margin-bottom: 20px;
+}
+
+.details-info p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.details-info strong {
+  font-weight: bold;
+  color: #007bff; /* Change strong text color */
+}
+
+.form-button {
+  padding: 10px 25px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+/* Keep existing styles */
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .product-details {
+    flex-direction: column; /* Change to column layout for smaller screens */
+  }
+
+  .image-section,
+  .details-section {
+    flex: auto; /* Take full width in smaller screens */
+    margin-right: 0; /* Remove margin for smaller screens */
+  }
+
+  .image-section {
+    margin-bottom: 20px; /* Add margin at the bottom for spacing */
+  }
+}
+
